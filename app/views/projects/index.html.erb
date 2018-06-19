@@ -1,0 +1,8 @@
+<h1> This is the projects index page </h1>
+<ul>
+<% @projects.each do |project| %>
+  <li><%= display_user(project) %> - <%= link_to project.title, project_path(project) %></li>
+<% end %>
+</ul>
+<br>
+<%= link_to "Add New Project", new_project_path %>
