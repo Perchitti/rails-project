@@ -29,7 +29,7 @@ def new
   if params[:user_id] && !User.exists?(params[:user_id])
         redirect_to 'users_path'
       else
-        @project = Project.new(user_id: params[:user_id])
+        @project = Project.new(user_id: params[:user_])
       end
 end
 
