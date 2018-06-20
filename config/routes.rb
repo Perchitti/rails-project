@@ -4,12 +4,22 @@ root 'users#index'
 post '/login', to: 'sessions#create'
 get '/signup', to: 'users#new'
 post '/signup', to: 'users#create'
-get '/show', to: 'projects#index'
-post '/logout' to: 'sessions#destroy'
+get '/show', to: 'users#show'
+get '/project/show', to: 'projects#index'
+post '/project/show', to: 'projects#index'
+#get '/projects/new', to: 'projects#new'
+#post '/projects/new', to: 'projects#show'
+post '/logout', to: 'sessions#destroy'
 
 resources :users do
   resources :projects, only: [:index, :show, :new, :edit]
 end
-resources :projects
+
+
 end
+#resources :users do
+#  resources :projects, only: [:index, :show, :new, :edit]
+#end
+#resources :projects
+#end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

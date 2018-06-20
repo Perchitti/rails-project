@@ -1,1 +1,5 @@
 <h1> This is the projects show page </h1>
+<h1><%= link_to @project.title, project_path(@project) %></h1>
+<h3> by <%= display_user(@project) %></h3>
+
+<%= link_to "All Projects", projects_path %>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 def index
+  @users = User.all
 end
 
 def show
@@ -23,24 +24,15 @@ def create
 end
 
 def edit
-  @user = User.find(params[:id])
+  @user = User.find(params[:user_id])
 end
 
-def update
-  @user = User.find(params[:id])
-    @user.update(user_params)
-      if @user.save
-        redirect_to @user
-      else
-        render :edit
-    end
-end
 
 def destroy
-  @user = User.find(params[:id])
+  @user = User.find(params[:user_id])
   @user.destroy
   flash[:notice] = "User Deleted"
-  redirect_to users_path
+  redirect_to '/signup'
 end
 
 private

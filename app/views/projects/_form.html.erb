@@ -1,8 +1,9 @@
 <h1> THis is the project form page </h1>
-<%= form_for @project do |f|%>
+<%= form_for :project, url: '/project/show' do |f|%>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
-  <%= user_select(f, @project) %>
+  <%= f.label :designer %>
+ <%= f.text_field :user_name %>
   <br />
 
   <%= f.submit %>
