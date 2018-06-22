@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
       if logged_in?
         @user = current_user
         if @user.nil?
-          redirect_to '/', alert: "User not found"
+          redirect_to '/' #alert: "User not found"
         else
           @projects = @user.projects
         end
@@ -14,38 +14,51 @@ class ProjectsController < ApplicationController
 
     def new
       if session[:user_id] && !User.exists?(session[:user_id])
-            redirect_to 'users_path'
-          else
-            @project = Project.new(user_id: session[:user_id])
-          end
+          redirect_to project_show_path
+      else
+        @project = Project.new(user_id: session[:user_id])
+      end
     end
+
+    def create
+       @project = Project.new(project_params)
+       if @project.save
+         redirect_to @project
+       else
+         render :new
+       end
+     end
 
     def show
       if session[:user_id]
       @user = User.find_by(id: session[:user_id])
       @project = @user.projects.find_by(id: params[:id])
       if @project.nil?
-        redirect_to project_path(@user), alert: "Project not found"
+        redirect_to project_path(@user) #alert: "Project not found"
       end
     else
     redirect_to '/edit'
     end
-    end
+  end
 
 
-def create
-   @project = Project.new(project_params)
-
-   if @project.save
-     redirect_to @project
+ def edit
+   if logged_in?
+     @user = current_user
+     if @user.nil?
+       redirect_to '/' #alert: "User not found"
+     else
+       @project = @user.projects.find_by(params[:id])
+       redirect_to projects_path if @project.nil?
+     end
    else
-     render :new
+     @project = Project.find(params[:id])
    end
+
  end
 
  def update
     @project = Project.find(params[:id])
-
     @project.update(project_params)
 
     if @project.save
@@ -58,7 +71,6 @@ def create
   def destroy
    @project = Project.find(params[:id])
    @project.destroy
-   flash[:notice] = "Project deleted."
    redirect_to projects_path
  end
 

@@ -6,13 +6,14 @@ def create
     session[:user_id] = @user.id
     redirect_to '/show'
   else
-    redirect_to '/login'
+    flash[:notice] = "ERROR: Incorrect Name or Password OR Sign Up"
+    redirect_to '/'
 end
 end
 
 def destroy
 session.delete :user_id
-redirect_to '/login'
+redirect_to '/'
 end
 
 end

@@ -4,10 +4,6 @@ def index
   @users = User.all
 end
 
-def show
-  @user = current_user
-end
-
 def new
   @user = User.new
 end
@@ -23,17 +19,14 @@ def create
   end
 end
 
+def show
+  @user = current_user
+end
+
 def edit
   @user = current_user
 end
 
-
-def destroy
-  @user = current_user
-  @user.destroy
-  flash[:notice] = "User Deleted"
-  redirect_to '/signup'
-end
 
 private
 
