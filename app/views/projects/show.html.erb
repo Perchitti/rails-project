@@ -1,4 +1,4 @@
-<h1> This is the projects show page </h1>
-<h3> project name: <%= link_to @project.title, project_path(@project) %></h3>
+<h1> Project </h1>
+<h3> Title: <%= link_to @project.title, edit_project_path(@project) %></h3>
 
 <%= link_to "All Projects", projects_path %>

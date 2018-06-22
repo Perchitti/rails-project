@@ -1,4 +1,4 @@
-<h1> (This is the projects index page) </h1>
+<h1><%= "#{@user.name}'s Project Index Page" %></h1>
 <ul>
 <% @projects.each do |project| %>
   <li><%= display_user(project) %> - <%= link_to project.title, project_path(project) %></li>
