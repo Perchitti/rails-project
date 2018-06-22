@@ -2,11 +2,10 @@ class Project < ApplicationRecord
   belongs_to :user
 
   def user_name
-    self.try(:user).try(:name)
+    self.user.name
   end
 
   def user_name=(name)
-    user = User.find_or_create_by(name: name)
-    self.user = user
+    self.user = User.find_or_create_by(name: name)
   end
 end
