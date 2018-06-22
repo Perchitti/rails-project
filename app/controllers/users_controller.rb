@@ -5,7 +5,7 @@ def index
 end
 
 def show
-  @user = User.find(session[:user_id])
+  @user = current_user
 end
 
 def new
@@ -24,12 +24,12 @@ def create
 end
 
 def edit
-  @user = User.find(params[:user_id])
+  @user = current_user
 end
 
 
 def destroy
-  @user = User.find(params[:user_id])
+  @user = current_user
   @user.destroy
   flash[:notice] = "User Deleted"
   redirect_to '/signup'
@@ -38,6 +38,6 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:name, :password, :password_digest)
+  params.require(:user).permit(:name, :password, :password_confirmation)
 end
 end
