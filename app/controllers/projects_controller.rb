@@ -46,10 +46,10 @@ class ProjectsController < ApplicationController
    if logged_in?
      @user = current_user
      if @user.nil?
-       redirect_to '/' #alert: "User not found"
+       redirect_to '/'
      else
        @project = @user.projects.find_by(params[:id])
-       redirect_to projects_path if @project.nil?
+       redirect_to edit_project_path if @project.nil?
      end
    else
      @project = Project.find(params[:id])
