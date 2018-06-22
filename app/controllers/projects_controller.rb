@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
       if logged_in?
         @user = current_user
         if @user.nil?
-          redirect_to '/' #alert: "User not found"
+          redirect_to '/'
         else
           @projects = @user.projects
         end
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
       @user = User.find_by(id: session[:user_id])
       @project = @user.projects.find_by(id: params[:id])
       if @project.nil?
-        redirect_to project_path(@user) #alert: "Project not found"
+        redirect_to project_path(@user)
       end
     else
     redirect_to '/edit'
@@ -69,9 +69,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-   @project = Project.find(params[:id])
-   @project.destroy
-   redirect_to projects_path
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path
  end
 
   private
