@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  validates :title, length: {minimum: 1}
+  validates :title, presence: true
 
   def user_name
     self.user.name
