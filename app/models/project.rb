@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :user
 
+  validates :title, length: {minimum: 1}
+
   def user_name
     self.user.name
   end
