@@ -5,10 +5,6 @@ post '/login', to: 'sessions#create'
 get '/signup', to: 'users#new'
 post '/signup', to: 'users#create'
 get '/show', to: 'users#show'
-get '/project/show', to: 'projects#new'
-post '/project/new', to: 'projects#show'
-#get '/projects/new', to: 'projects#new'
-#post '/projects/new', to: 'projects#show'
 post '/logout', to: 'sessions#destroy'
 
 
