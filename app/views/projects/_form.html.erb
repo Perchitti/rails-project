@@ -1,5 +1,5 @@
-<h1> THis is the project form page </h1>
-<%= form_for :project, url: '/project/show' do |f|%>
+<h1> (This is the project form page) </h1>
+<%= form_for @project do |f|%>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.label :designer %>
@@ -8,3 +8,6 @@
 
   <%= f.submit %>
 <% end %>
+
+<br>
+<%= link_to "All Projects", projects_path %>
