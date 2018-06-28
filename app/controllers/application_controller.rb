@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper_method :current_user
+
+  def authenticate
+    redirect_to :login unless logged_in?
+  end
 
   def logged_in?
     !!session[:user_id]

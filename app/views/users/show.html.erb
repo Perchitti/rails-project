@@ -1,4 +1,10 @@
-<h1><%= "Welcome #{@user.name}!" %></h1>
+<h1><%= "Welcome #{@user.uid}!" %></h1>
+
+<% if current_user %>
+	<% current_user.attributes.each do |k, v| %>
+		<b><%= k %>:</b> <%= v %> <br>
+	<% end %>
+<% end %>
 
 
 <%= link_to "Add New Project", new_project_path(@user) %>
