@@ -1,7 +1,7 @@
 <h1><%= "#{@user.name}'s Project Page" %></h1>
 <ul>
 <% @projects.each do |project| %>
-  <li><%= display_user(project) %> - <%= link_to project.title, project_path(project) %></li>
+  <li><%= display_user(project) %> - <%= link_to project.title, project_path(project) %>  |  <%= link_to 'Delete', project_path(project), method: :delete %></li>
 <% end %>
 </ul>
 <br>
