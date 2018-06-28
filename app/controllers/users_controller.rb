@@ -15,6 +15,7 @@ def create
     session[:user_id] = @user.id
     redirect_to '/show'
   else
+    flash[:notice] = "ERROR: Please Try Again"
     redirect_to '/signup'
   end
 end
