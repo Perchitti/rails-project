@@ -1,14 +1,8 @@
-<h1><%= "Welcome #{@user.uid}!" %></h1>
-
-<% if current_user %>
-	<% current_user.attributes.each do |k, v| %>
-		<b><%= k %>:</b> <%= v %> <br>
-	<% end %>
-<% end %>
+<h1><%= "Welcome #{@user.first_name || @user.name}!" %></h1>
 
 
 <%= link_to "Add New Project", new_project_path(@user) %>
 
-<%= form_tag('/logout', method: :post) do %>
+<%= form_tag('/logout', method: :delete) do %>
     <%= submit_tag 'Logout' %>
 <% end %>
