@@ -3,6 +3,5 @@
 
 <%= link_to "Add New Project", new_project_path(@user) %>
 
-<%= form_tag('/logout', method: :post) do %>
-    <%= submit_tag 'Logout' %>
-<% end %>
+
+<%= button_to "Logout", logout_path(@user), method: :delete %>
