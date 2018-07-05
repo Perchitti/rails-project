@@ -16,8 +16,7 @@ Clone this repo in your terminal:
 cd into rails-travel-app directory
 Run bundle install to install gems
 Run rake db:migrate
-Run rake db:seed
-To start the server, run rails s OR thin start --ssl
+To start the server, run rails s
 In your browser, go to https://localserver:3000
 
 
