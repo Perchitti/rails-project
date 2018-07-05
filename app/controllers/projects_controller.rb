@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
     def new
       if session[:user_id] && !User.exists?(session[:user_id])
-          redirect_to project_show_path
+          redirect_to project_path
       else
         @project = Project.new(user_id: session[:user_id])
       end
@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
      end
 
     def show
+      @project = Project.find(params[:id])
       if session[:user_id]
       @user = User.find_by(id: session[:user_id])
       @project = @user.projects.find_by(id: params[:id])
@@ -71,7 +72,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to project_path
+    redirect_to projects_path
  end
 
   private
