@@ -1,4 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
+
+  </head>
+
+  <body>
+    <div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign Up</a>
+
+      </div>
+    </div>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+<br>
+<br>
 <h1> Store your current projects on ProjectBox </h1>
 
 
@@ -22,8 +44,9 @@
 
 <br>
 
+
   <%= link_to('Log in with Google!', '/auth/google_oauth2') %>
 
 
-<h4>Or, Sign Up!</h4>
-<%= link_to "Signup", '/signup' %>
+</body>
+</html>
