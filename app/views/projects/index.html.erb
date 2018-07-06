@@ -1,7 +1,9 @@
 <h1><%= "#{@user.first_name || @user.name}'s Project Page" %></h1>
 <ul>
-<% @projects.each do |project| %>
-  <li><%= link_to project.title, project_path(project) %>  |  <%= link_to 'Delete', project_path(project), method: :delete %></li>
+<% @projects.latest.each do |project| %>
+  <li><%= link_to project.title, project_path(project) %>
+  <%= button_to 'Delete', project_path(project), method: :delete, data: { confirm: "are you sure?"} %></li>
+  <br>
 <% end %>
 </ul>
 <br>
