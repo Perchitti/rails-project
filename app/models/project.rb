@@ -1,8 +1,10 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :notes
+  belongs_to :location
 
   validates :title, presence: true
+
+  scope :latest, ->(column = :created_at) {order(column => :desc)}
 
   def user_name
     self.user.name
