@@ -15,8 +15,8 @@ Terminal must have Ruby and Bundlr installed.
 Clone this repo in your terminal: <br>
 cd into rails-project-2 directory  <br>
 Run bundle install to install gems <br>
-Run rake db:migrate
-To start the server, run rails s
+Run rake db:migrate <br>
+To start the server, run rails s <br>
 In your browser, go to https://localserver:3000
 
 
