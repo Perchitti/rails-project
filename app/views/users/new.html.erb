@@ -1,12 +1,12 @@
 <br>
 <%= form_for :user, url: '/signup' do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :required => true %>
 
   <br>
 
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, :required => true %>
 
   <br>
 

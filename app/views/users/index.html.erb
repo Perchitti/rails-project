@@ -28,12 +28,12 @@
 
 <%= form_for :user, url: '/login' do |f| %>
 <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true %>
 
     <br><br>
 
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :required => true %>
 
     <br><br>
 
